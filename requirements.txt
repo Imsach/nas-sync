@@ -1,0 +1,29 @@
+# Buffalo LinkStation Sync Manager Requirements
+# Core application uses only Python standard library modules
+
+# The following modules are used (all part of Python standard library):
+# - tkinter (GUI)
+# - threading (background tasks)
+# - pathlib (file path handling)
+# - shutil (file operations)
+# - hashlib (file verification)
+# - json (config storage)
+# - fnmatch (pattern matching)
+# - os (system operations)
+# - time (scheduling)
+# - datetime (timestamps)
+# - smtplib (email notifications)
+
+# For Python 3.7+ on Windows, Linux, or macOS
+# Note: tkinter comes with Python but may need to be installed separately on some Linux systems:
+# Ubuntu/Debian: sudo apt-get install python3-tk
+# Fedora: sudo dnf install python3-tkinter
+# Arch: sudo pacman -S tk
+
+# Optional dependencies for Windows system tray icon (recommended for Windows users):
+# Install with: pip install -r requirements.txt
+pystray>=0.19.0
+pillow>=10.0.0
+
+# Note: The application will work without these packages,
+# but the system tray icon feature will be disabled
