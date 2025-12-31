@@ -177,7 +177,7 @@ class NASyncApp:
 
         for idx, (key, title, default, color) in enumerate(stats_data):
             card = self.create_stat_card(stats_frame, title, default, color)
-            card.grid(row=0, column=idx, padx=5, sticky=(tk.W, tk.E, tk.N, tk.S))
+            card["frame"].grid(row=0, column=idx, padx=5, sticky=(tk.W, tk.E, tk.N, tk.S))
             self.stat_cards[key] = card['value_label']
 
         # Quick Actions
