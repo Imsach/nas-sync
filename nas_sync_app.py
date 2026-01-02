@@ -42,7 +42,7 @@ class ModernTheme:
 class NASyncApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("Buffalo LinkStation Sync Manager")
+        self.root.title("NAS Sync Manager - powered by stonklab")
         self.root.geometry("1100x750")
         self.root.minsize(1000, 650)
 
@@ -127,7 +127,7 @@ class NASyncApp:
         header_frame = ttk.Frame(main_container, style='Main.TFrame')
         header_frame.grid(row=0, column=0, sticky=(tk.W, tk.E), pady=(0, 15))
 
-        title = ttk.Label(header_frame, text="Buffalo LinkStation Sync Manager",
+        title = ttk.Label(header_frame, text="NAS Sync Manager",
                          style='Title.TLabel')
         title.pack(side=tk.LEFT)
 
@@ -270,13 +270,13 @@ class NASyncApp:
         paths_frame.grid(row=0, column=0, sticky=(tk.W, tk.E), pady=(0, 15))
         paths_frame.columnconfigure(1, weight=1)
 
-        # Buffalo LinkStation quick preset
+        # NAS quick preset
         ttk.Label(paths_frame, text="Quick Setup:", style='Card.TLabel').grid(
             row=0, column=0, sticky=tk.W, pady=(0, 10))
         preset_frame = ttk.Frame(paths_frame, style='Card.TFrame')
         preset_frame.grid(row=0, column=1, columnspan=2, sticky=(tk.W, tk.E), pady=(0, 10))
 
-        ttk.Label(preset_frame, text="Buffalo LinkStation:", style='Subtitle.TLabel').pack(
+        ttk.Label(preset_frame, text="NAS:", style='Subtitle.TLabel').pack(
             side=tk.LEFT, padx=(0, 10))
         self.nas_drive_var = tk.StringVar()
         nas_combo = ttk.Combobox(preset_frame, textvariable=self.nas_drive_var,
@@ -728,11 +728,11 @@ class NASyncApp:
         return drives if drives else ["No drives detected"]
 
     def apply_nas_preset(self):
-        """Apply Buffalo LinkStation preset"""
+        """Apply NAS preset"""
         nas_drive = self.nas_drive_var.get()
         if nas_drive and nas_drive != "No drives detected":
             self.dest_var.set(nas_drive)
-            self.log("Applied Buffalo LinkStation preset", "INFO")
+            self.log("Applied NAS preset", "INFO")
             self.update_connection_status(True)
 
     def toggle_bandwidth(self):
@@ -763,12 +763,12 @@ class NASyncApp:
 
                 self.log("Connection test successful!", "SUCCESS")
                 self.update_connection_status(True)
-                messagebox.showinfo("Success", "Buffalo LinkStation connection successful!")
+                messagebox.showinfo("Success", "NAS connection successful!")
             else:
                 self.log("Connection test failed: Path not accessible", "ERROR")
                 self.update_connection_status(False)
                 messagebox.showerror("Error", "Cannot access NAS path. Please check:\n"
-                                    "1. Buffalo LinkStation is powered on\n"
+                                    "1. NAS is powered on\n"
                                     "2. Network drive is mapped correctly\n"
                                     "3. You have write permissions")
         except Exception as e:
@@ -788,7 +788,7 @@ class NASyncApp:
     def send_test_email(self):
         """Send a test email"""
         try:
-            self.send_notification("Test Email", "This is a test notification from Buffalo LinkStation Sync Manager.")
+            self.send_notification("Test Email", "This is a test notification from NAS Sync Manager.")
             messagebox.showinfo("Success", "Test email sent successfully!")
         except Exception as e:
             messagebox.showerror("Error", f"Failed to send test email:\n{str(e)}")
@@ -822,7 +822,7 @@ class NASyncApp:
             self.source_var.set(folder)
 
     def browse_dest(self):
-        folder = filedialog.askdirectory(title="Select Buffalo LinkStation Destination")
+        folder = filedialog.askdirectory(title="Select NAS Destination")
         if folder:
             self.dest_var.set(folder)
             threading.Thread(target=self.test_connection, daemon=True).start()
@@ -934,7 +934,7 @@ class NASyncApp:
             config = self.get_current_config()
             self.sync_engine = SyncEngine(config, self.log, self.update_progress)
 
-            self.log("Starting sync operation to Buffalo LinkStation...", "INFO")
+            self.log("Starting sync operation to NAS...", "INFO")
             result = self.sync_engine.sync()
 
             sync_duration = time.time() - self.sync_start_time
@@ -963,7 +963,7 @@ class NASyncApp:
                 if self.notifications_var.get():
                     self.send_notification(
                         "Sync Completed",
-                        f"Buffalo LinkStation sync completed successfully!\n\n"
+                        f"NAS sync completed successfully!\n\n"
                         f"Copied: {result['copied']}\n"
                         f"Updated: {result['updated']}\n"
                         f"Deleted: {result['deleted']}\n"
@@ -986,7 +986,7 @@ class NASyncApp:
                 if self.notifications_var.get():
                     self.send_notification(
                         "Sync Failed",
-                        f"Buffalo LinkStation sync completed with errors. Please check the logs."
+                        f"NAS sync completed with errors. Please check the logs."
                     )
 
         except Exception as e:
@@ -1144,7 +1144,7 @@ class NASyncApp:
             if self.tray_icon:
                 self.tray_icon.show_notification(
                     "Still Running",
-                    "Buffalo LinkStation Sync is running in the system tray"
+                    "NAS Sync is running in the system tray"
                 )
         else:
             self.quit_app()
