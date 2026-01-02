@@ -13,7 +13,7 @@ Powered by Stonklab.com(https://stonklab.com)
 ### Core Features
 - 🔄 **Automatic & Manual Sync** - Schedule automatic syncing or trigger on-demand
 - 📊 **Dashboard Interface** - Modern tabbed interface with real-time statistics
-- 🎯 **Buffalo LinkStation Integration** - Auto-detects mapped drives and optimized performance
+- 🎯 **NAS Integration** - Auto-detects mapped drives and optimized performance
 - 🔐 **MD5 Verification** - Optional file integrity verification
 - 📈 **Sync History** - Complete tracking of all sync operations
 - 🔔 **Notifications** - Email alerts and system tray notifications (Windows)
@@ -58,7 +58,7 @@ python nas_sync_app.py
 
 ### 3. First-Time Setup
 
-1. **Configure Buffalo LinkStation**:
+1. **Configure Buffalo LinkStation OR other NAS such as FREENAS / TRUENAS**:
    - Dashboard tab → Use "Test NAS Connection"
    - Or Configuration tab → Quick Setup dropdown
 
@@ -234,12 +234,12 @@ pip install pystray pillow
 
 ## Windows-Specific Setup
 
-### Map Buffalo LinkStation
+### Map Buffalo LinkStation or any NAS
 
 1. Open File Explorer
 2. Right-click "This PC" → "Map network drive"
 3. Choose drive letter (e.g., Z:)
-4. Enter: `\\LINKSTATION\share`
+4. Enter: `\\LINKSTATION\share` OR `\\NAS\drive` 
 5. Check "Reconnect at sign-in"
 
 ### Auto-Start on Windows
@@ -254,7 +254,7 @@ pip install pystray pillow
 
 ## Linux/Mac Setup
 
-### Mount Buffalo LinkStation
+### Mount Buffalo LinkStation or any NAS 
 
 **Linux (CIFS):**
 ```bash
