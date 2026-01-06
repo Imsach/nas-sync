@@ -86,7 +86,7 @@ python nas_sync_app.py
 ## Project Structure
 
 ```
-buffalo-linkstation-sync/
+nas-sync/
 ├── README.md                      # This file - main overview
 ├── nas_sync_app.py               # Main GUI application
 ├── sync_engine.py                # Core sync logic
@@ -103,6 +103,8 @@ buffalo-linkstation-sync/
     ├── WINDOWS_FEATURES.md       # Windows-specific features
     ├── README_NAS_SYNC.md        # General usage guide
     └── FILES_OVERVIEW.md         # Project structure details
+└── dist/
+    ├── NASSyncManager.exe            # Windows launcher for NAS-SYNC
 ```
 
 ## Key Features Explained
