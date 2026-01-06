@@ -43,7 +43,7 @@ pip install pystray pillow
 **Download and Extract** this zip file to your desired location.
 
 **Windows:**
-- Double-click `run_nassync.bat`
+- Double-click `run_nassync.bat` OR 'NASSyncManager.exe' in dist directory. 
 
 **Linux/Mac:**
 ```bash
@@ -245,11 +245,13 @@ pip install pystray pillow
 ### Auto-Start on Windows
 
 1. Open Task Scheduler
-2. Create Basic Task → "Buffalo Sync"
+2. Create Basic Task → "NAS Sync"
 3. Trigger: "At log on"
 4. Action: Start program
    - Program: `pythonw.exe`
    - Arguments: `"C:\path\to\nas_sync_app.py"`
+     OR
+   - Program: 'NASSyncManager.exe'
 5. Save and enable
 
 ## Linux/Mac Setup
@@ -364,6 +366,8 @@ pip install -r requirements.txt
 
 # Windows launcher
 run_nassync.bat
+or
+NASSyncManager.exe
 
 # Linux/Mac launcher
 ./run_nassync.sh
