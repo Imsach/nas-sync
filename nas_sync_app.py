@@ -12,6 +12,7 @@ from pathlib import Path
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import webbrowser
 
 try:
     from tray_icon import TrayIcon, TRAY_AVAILABLE
@@ -151,6 +152,94 @@ class NASyncApp:
         self.create_advanced_tab()
         self.create_logs_tab()
         self.create_history_tab()
+        self.create_about_tab()
+        
+    def create_about_tab(self):
+        """Create About tab"""
+
+        tab = ttk.Frame(self.notebook, style='Main.TFrame', padding="20")
+        self.notebook.add(tab, text="  About  ")
+
+        tab.columnconfigure(0, weight=1)
+
+        card = ttk.Frame(tab, style='Card.TFrame', padding="20", relief='solid', borderwidth=1)
+        card.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N), padx=50, pady=30)
+        card.columnconfigure(0, weight=1)
+
+        # Title
+        ttk.Label(
+            card,
+            text="NAS Sync Manager",
+            font=('Segoe UI', 18, 'bold'),
+            foreground=ModernTheme.TEXT_PRIMARY,
+            background=ModernTheme.BG_PRIMARY
+        ).grid(row=0, column=0, sticky=tk.W, pady=(0, 5))
+
+        ttk.Label(
+            card,
+            text="Reliable NAS synchronization made simple",
+            style='Subtitle.TLabel'
+        ).grid(row=1, column=0, sticky=tk.W, pady=(0, 15))
+
+        # Description
+        description = (
+            "NAS Sync Manager is a lightweight, modern desktop application designed to "
+            "synchronize files between your PC and NAS with speed, reliability, and control.\n\n"
+            "It supports scheduled syncs, mirror and copy modes, file filtering, bandwidth limits, "
+            "email notifications, and detailed history tracking — all through a clean, intuitive UI."
+        )
+
+        ttk.Label(
+            card,
+            text=description,
+            wraplength=700,
+            justify=tk.LEFT,
+            foreground=ModernTheme.TEXT_SECONDARY,
+            background=ModernTheme.BG_PRIMARY,
+            font=('Segoe UI', 10)
+        ).grid(row=2, column=0, sticky=tk.W, pady=(0, 20))
+
+        # Helper to create links
+        def link_label(text, url):
+            lbl = tk.Label(
+                card,
+                text=text,
+                fg=ModernTheme.ACCENT_PRIMARY,
+                bg=ModernTheme.BG_PRIMARY,
+                cursor="hand2",
+                font=('Segoe UI', 10, 'underline')
+            )
+            lbl.bind("<Button-1>", lambda e: webbrowser.open_new(url))
+            return lbl
+
+        # Links section
+        ttk.Label(
+            card,
+            text="Resources",
+            font=('Segoe UI', 12, 'bold'),
+            foreground=ModernTheme.TEXT_PRIMARY,
+            background=ModernTheme.BG_PRIMARY
+        ).grid(row=3, column=0, sticky=tk.W, pady=(10, 5))
+
+        link_label("📦 GitHub Repository", "https://github.com/Imsach/nas-sync") \
+            .grid(row=4, column=0, sticky=tk.W, pady=2)
+
+        link_label("📘 Documentation", "https://github.com/Imsach/nas-sync/tree/main/docs") \
+            .grid(row=5, column=0, sticky=tk.W, pady=2)
+
+        link_label("🌐 Powered by StonkLab", "https://stonklab.com") \
+            .grid(row=6, column=0, sticky=tk.W, pady=2)
+
+        # Footer
+        ttk.Label(
+            card,
+            text="© 2026 StonkLab • Open-source • Built with Python",
+            foreground=ModernTheme.TEXT_MUTED,
+            background=ModernTheme.BG_PRIMARY,
+            font=('Segoe UI', 9)
+        ).grid(row=7, column=0, sticky=tk.W, pady=(20, 0))
+
+
 
     def create_overview_tab(self):
         """Create dashboard overview tab"""
