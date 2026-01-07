@@ -25,6 +25,21 @@ Powered by Stonklab.com(https://stonklab.com)
 - **Mirror Mode** - Keeps destination identical to source (exact backup)
 - **Copy Mode** - Only copies/updates files (preserves extra files)
 
+## Quick Demo
+
+<table>
+<tr>
+<td align="center">
+<b>Launch Windows .exe</b><br>
+<img src="gifs/howtodownload.gif" alt="How to Download">
+</td>
+<td align="center">
+<b>Main NAS-Sync UI</b><br>
+<img src="gifs/nasui.gif" alt="NAS-Sync Interface">
+</td>
+</tr>
+</table>
+
 ## Quick Start
 
 ### 1. Requirements
