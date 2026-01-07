@@ -2,7 +2,7 @@
 
 Professional automated backup solution specifically optimized for NAS devices with an elegant modern interface.
 
-![Version](https://img.shields.io/badge/version-2.0-blue)
+![Version](https://img.shields.io/badge/version-1.0-blue)
 ![Python](https://img.shields.io/badge/python-3.7+-green)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey)
 
@@ -119,7 +119,7 @@ nas-sync/
     ├── README_NAS_SYNC.md        # General usage guide
     └── FILES_OVERVIEW.md         # Project structure details
 └── dist/
-    ├── NASSyncManager.exe            # Windows launcher for NAS-SYNC
+    └── NASSyncManager.exe        # Windows launcher for NAS-SYNC
 ```
 
 ## Key Features Explained
@@ -348,24 +348,24 @@ This software is provided as-is for personal and commercial use.
 
 ## Version History
 
-### Version 2.0 - Buffalo LinkStation Edition (Current)
+### Version 1.0 - Initial Release (Current)
 - ✨ Modern elegant UI with tabbed interface
 - 🪟 Windows system tray icon with notifications
 - 📊 Comprehensive sync history tracking
 - ⚡ Bandwidth control and throttling
 - 🗑️ Automatic retention policy
 - 📧 Email notification support
-- 🎯 Buffalo LinkStation auto-detection
+- 🎯 NAS auto-detection
 - 🔍 Connection testing
 - 📈 Real-time progress tracking
 - 🎨 Color-coded dashboard and logs
-
-### Version 1.0 - Initial Release
 - Basic sync functionality
 - Mirror and Copy modes
 - File filtering
 - MD5 verification
 - Auto-sync capability
+- Windows executable file
+- Linux/MAC support
 
 ---
 
@@ -392,6 +392,6 @@ NASSyncManager.exe
 
 ---
 
-**Enjoy hassle-free automated backups to your Buffalo LinkStation!** 🚀
+**Enjoy hassle-free automated backups to your NAS server!** 🚀
 
 For detailed documentation, see the `docs/` folder.
